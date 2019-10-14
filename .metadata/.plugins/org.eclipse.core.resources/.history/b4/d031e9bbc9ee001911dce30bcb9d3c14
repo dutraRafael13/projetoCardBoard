@@ -1,0 +1,5 @@
+package br.com.cardboard.transportadoraAPI.controller;
+
+public class TransportadoraController {
+
+}

@@ -1,0 +1,12 @@
+package br.com.cardboard.transportadoraAPI.models;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "transportadora")
+public class TransportadoraModel {
+
+	
+	
+}

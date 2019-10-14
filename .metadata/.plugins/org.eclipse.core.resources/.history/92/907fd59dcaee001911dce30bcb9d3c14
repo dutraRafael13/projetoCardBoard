@@ -1,0 +1,7 @@
+package br.com.cardboard.transportadoraAPI.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TransportadoraRepository extends JpaRepository<TransportadoraRepository, Integer> {
+
+}
