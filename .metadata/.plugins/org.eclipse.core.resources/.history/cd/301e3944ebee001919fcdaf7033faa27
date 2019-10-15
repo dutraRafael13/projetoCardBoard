@@ -1,0 +1,13 @@
+package br.com.cardboard.transportadoraAPI.validar;
+
+public class Validar {
+
+	public boolean valida(Object[] param) {
+		for (Object obj : param) {
+			if (obj == null)
+				return false;
+		}
+		return true;
+	}
+
+}

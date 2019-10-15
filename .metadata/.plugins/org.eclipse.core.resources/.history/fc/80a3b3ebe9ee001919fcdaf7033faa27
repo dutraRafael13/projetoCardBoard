@@ -1,0 +1,18 @@
+package br.com.cardboard.transportadoraAPI.calcular.melhor.transportadora;
+
+import java.util.List;
+
+import br.com.cardboard.transportadoraAPI.enums.EnumPrioridadeTransporte;
+import br.com.cardboard.transportadoraAPI.models.TransportadoraModel;
+
+public class CalcularMelhorTransportadora {
+	
+	private List<TransportadoraModel> calcula(List<TransportadoraModel> transportadoras, long distancia, EnumPrioridadeTransporte prioridade) {
+		return transportadoras;
+	}
+	
+	private double calculoPrecoFinal(long distancia, double valor) {
+		return (distancia * valor) / 10;
+	}
+
+}

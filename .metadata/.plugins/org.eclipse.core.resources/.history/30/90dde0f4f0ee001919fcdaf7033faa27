@@ -1,0 +1,43 @@
+package br.com.cardboard.transportadoraAPI.calcular.melhor.transportadora;
+
+import java.util.List;
+
+import br.com.cardboard.transportadoraAPI.enums.EnumPrioridadeTransporte;
+import br.com.cardboard.transportadoraAPI.enums.EnumTipoTransporte;
+import br.com.cardboard.transportadoraAPI.models.TransportadoraModel;
+
+public class CalcularMelhorTransportadora {
+	
+	public String calcula(List<TransportadoraModel> transportadoras, long distancia, EnumPrioridadeTransporte prioridade) {
+		String msg = "";
+		TransportadoraModel melhorTransportadora = null;
+		double menorPreco = 0.0;
+		double menorTempo = 0.0;
+		for (TransportadoraModel transportadora : transportadoras) {
+			if (menorPreco == 0) {
+				menorPreco = this.calculaPrecoFinal(distancia, transportadora.getValor());
+				melhorTransportadora = transportadora;
+			} else {
+				double preco = this.calculaPrecoFinal(distancia, transportadora.getValor());
+				if (preco < menorPreco) {
+					menorPreco = preco;
+				}
+			}
+		}
+		return msg;
+	}
+	
+	public String calcula(List<TransportadoraModel> transportadoras, long distancia,
+			EnumPrioridadeTransporte prioridade, EnumTipoTransporte tipoTransporte) {
+		return "";	
+	}
+	
+	private double calculaPrecoFinal(long distancia, double valor) {
+		return (distancia * valor) / 10;
+	}
+	
+	private double calculaTempoFinal(long distancia, int tempo) {
+		return distancia * tempo;
+	}
+
+}

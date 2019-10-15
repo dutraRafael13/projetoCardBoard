@@ -1,0 +1,56 @@
+package br.com.cardboard.transportadoraAPI.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.cardboard.transportadoraAPI.models.TransportadoraModel;
+import br.com.cardboard.transportadoraAPI.repository.TransportadoraRepository;
+
+@RestController
+@RequestMapping(value = "/service")
+public class TransportadoraController {
+	
+	private static final String SUCESSO_AO_GRAVAR = "Sucesso ao gravar nova transportadora";
+	private static final String ERRO_AO_GRAVAR = "Erro ao gravar nova transportadora";
+	
+	@Autowired
+	TransportadoraRepository transportadoraRepository;
+	
+	@GetMapping("/transportadora")
+	public List<TransportadoraModel> listaTransportadoras() {
+		return transportadoraRepository.findAll();
+	}
+	
+	@GetMapping("/transportadora/{idTipoTransportadora}")
+	public Optional<TransportadoraModel> listaTransportadorasPorId(@PathVariable(value = "idTransportadora") Integer idTransportadora) {
+		return transportadoraRepository.findById(idTransportadora);
+	}
+	
+	@PostMapping("/transportadora")
+	public String salvaTransportadora(@RequestBody TransportadoraModel transportadora) {
+		return transportadoraRepository.save(transportadora) != null ? SUCESSO_AO_GRAVAR : ERRO_AO_GRAVAR;
+	}
+	
+	@GetMapping("/transportadora/{origem}/{destino}/{distancia}/{prioridade}")
+	public String calculaMelhorTransportadora(@PathVariable(value = "origem") String origem, @PathVariable(value = "destino") String destino,
+			@PathVariable(value = "distancia") String distancia, @PathVariable(value = "prioridade") String prioridade) {
+		return "";
+	}
+	
+	@GetMapping("/transportadora/{origem}/{destino}/{distancia}/{tipoTransporte}/{prioridade}")
+	public String calculaMelhorTransportadora(@PathVariable(value = "origem") String origem,
+			@PathVariable(value = "destino") String destino, @PathVariable(value = "distancia") String distancia,
+			@PathVariable(value = "tipoTransporte") String tipoTransporte,
+			@PathVariable(value = "prioridade") String prioridade) {
+		return "";
+	}
+
+}

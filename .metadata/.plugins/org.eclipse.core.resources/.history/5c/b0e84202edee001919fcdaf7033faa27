@@ -1,0 +1,16 @@
+package br.com.cardboard.transportadoraAPI.enums;
+
+public enum EnumPrioridadeTransporte {
+	
+	MENOR_PRECO(1, "Menor preco"),
+	MENOR_TEMPO(2, "Menor tempo");
+	
+	private int id;
+	private String descricao;
+	
+	private EnumPrioridadeTransporte(int id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
+
+}

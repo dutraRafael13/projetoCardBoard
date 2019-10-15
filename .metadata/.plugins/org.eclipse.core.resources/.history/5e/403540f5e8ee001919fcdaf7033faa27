@@ -1,0 +1,13 @@
+package br.com.cardboard.transportadoraAPI.calcular.melhor.transportadora;
+
+public class CalcularMelhorTransportadora {
+	
+	private void calcula() {
+		
+	}
+	
+	private double calculoPrecoFinal(long km, double valor) {
+		return (km * valor) / 10;
+	}
+
+}

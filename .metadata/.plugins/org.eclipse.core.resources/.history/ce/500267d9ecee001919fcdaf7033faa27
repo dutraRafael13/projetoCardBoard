@@ -1,0 +1,25 @@
+package br.com.cardboard.transportadoraAPI.enums;
+
+public enum EnumTipoTransporte {
+	
+	TERRESTRE(1, "Terrestre"),
+	AEREO(2, "Aereo");
+	
+	private int id;
+	private String descricao;
+	
+	private EnumTipoTransporte(int id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
+	
+	public EnumTipoTransporte getTipo(int id) {
+		for (EnumTipoTransporte tipo : EnumTipoTransporte.values()) {
+			if (tipo.id = id) {
+				return tipo;
+			}
+		}
+		return null;
+	}
+
+}

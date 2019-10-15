@@ -2,3 +2,17 @@
 1571096229935	Delete element
 1571098416396	Delete element
 1571099058144	Rename local variable 'idTransportadora'
+1571100494613	Rename type 'DadosTransportadoraModel'
+1571100589099	Rename type 'DadosTransportadoraRepository'
+1571100612963	Delete element
+1571100625088	Delete element
+1571100663949	Delete element
+1571100672676	Delete element
+1571101064705	Rename field 'SUCESSO_AO_GRAVAR_TRANSPORTADORA'
+1571101504261	Rename package 'br.com.cardboard.transportadoraAPI.calcula.melhor'
+1571101515970	Rename package 'br.com.cardboard.transportadoraAPI.calcula.melhor'
+1571101539291	Delete elements
+1571102034552	Rename local variable 'km'
+1571103268585	Delete element
+1571105873986	Rename method 'calculaPrecoFinal'
+1571105884645	Rename method 'calculaTempoFinal'

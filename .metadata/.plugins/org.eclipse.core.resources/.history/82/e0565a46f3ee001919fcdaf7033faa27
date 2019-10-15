@@ -1,0 +1,52 @@
+package br.com.cardboard.transportadoraAPI.calcular.melhor.transportadora;
+
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import br.com.cardboard.transportadoraAPI.enums.EnumPrioridadeTransporte;
+import br.com.cardboard.transportadoraAPI.enums.EnumTipoTransporte;
+import br.com.cardboard.transportadoraAPI.models.TransportadoraModel;
+
+public class CalcularMelhorTransportadora {
+	
+	public String calcula(List<TransportadoraModel> transportadoras, long distancia, EnumPrioridadeTransporte prioridade) {
+		String msg = "";
+		TransportadoraModel melhorTransportadora = null;
+		double menorPreco = 0.0;
+		double menorTempo = 0.0;
+		for (TransportadoraModel transportadora : transportadoras) {
+			if (menorPreco == 0) {
+				menorPreco = this.calculaPrecoFinalTransportadora(distancia, transportadora.getValor());
+				melhorTransportadora = transportadora;
+			} else {
+				double preco = this.calculaPrecoFinalTransportadora(distancia, transportadora.getValor());
+				if (preco < menorPreco) {
+					menorPreco = preco;
+					melhorTransportadora = transportadora;
+				}
+			}
+		}
+		return msg;
+	}
+	
+	private void calculaMenor(long distancia, TransportadoraModel transportadora) {
+		Map<Integer, Double> mapTransportadoras = new TreeMap<>();
+		mapTransportadoras.put(EnumPrioridadeTransporte.MENOR_PRECO.getId(), this.calculaPrecoFinalTransportadora(distancia, transportadora.getValor()));
+		
+	}
+	
+	public String calcula(List<TransportadoraModel> transportadoras, long distancia,
+			EnumPrioridadeTransporte prioridade, EnumTipoTransporte tipoTransporte) {
+		return "";	
+	}
+	
+	private double calculaPrecoFinalTransportadora(long distancia, double valor) {
+		return (distancia * valor) / 10;
+	}
+	
+	private double calculaTempoFinalTransportadora(long distancia, int tempo) {
+		return distancia * tempo;
+	}
+
+}
