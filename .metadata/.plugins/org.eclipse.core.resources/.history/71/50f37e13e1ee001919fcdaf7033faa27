@@ -1,0 +1,5 @@
+package br.com.cardboard.transportadoraAPI.models;
+
+public class DadosTransportadoraModel {
+
+}

@@ -1,0 +1,45 @@
+package br.com.cardboard.transportadoraAPI.models;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "transportadora")
+public class TransportadoraModel implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idTipoTransporte;
+	private double valor;
+	private int tempo;
+	
+	public Integer getIdTipoTransporte() {
+		return idTipoTransporte;
+	}
+	
+	public void setIdTipoTransporte(Integer idTipoTransporte) {
+		this.idTipoTransporte = idTipoTransporte;
+	}
+	
+	public double getValor() {
+		return valor;
+	}
+	
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+	
+	public int getTempo() {
+		return tempo;
+	}
+	
+	public void setTempo(int tempo) {
+		this.tempo = tempo;
+	}
+	
+}

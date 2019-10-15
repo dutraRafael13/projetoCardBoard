@@ -1,0 +1,16 @@
+package br.com.cardboard.transportadoraAPI.enuns;
+
+public enum EnumTipoTransporte extends Enum{
+	
+	TERRESTRE(1, "Terrestre"),
+	AEREO(2, "Aereo");
+	
+	private int id;
+	private String descricao;
+	
+	private EnumTipoTransporte(int id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
+
+}

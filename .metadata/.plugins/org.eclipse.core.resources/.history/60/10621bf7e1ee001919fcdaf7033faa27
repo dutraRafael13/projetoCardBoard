@@ -1,0 +1,13 @@
+package br.com.cardboard.transportadoraAPI.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.cardboard.transportadoraAPI.models.TransportadoraModel;
+
+public interface TransportadoraRepository extends JpaRepository<TransportadoraModel, Integer> {
+	
+	Optional<TransportadoraModel> findById(Integer idTipoTransportadora);
+
+}

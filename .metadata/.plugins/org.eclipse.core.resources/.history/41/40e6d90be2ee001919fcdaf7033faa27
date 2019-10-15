@@ -1,0 +1,9 @@
+package br.com.cardboard.transportadoraAPI.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.cardboard.transportadoraAPI.models.DadosTransportadoraModel;
+
+public interface DadosTransportadoraRepository extends JpaRepository<DadosTransportadoraModel, Integer>{
+
+}
