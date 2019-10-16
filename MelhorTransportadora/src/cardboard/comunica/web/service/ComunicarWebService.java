@@ -7,13 +7,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import cardboard.calcular.melhor.transportadora.CalcularMelhorTransportadora;
 import cardboard.transportadora.enums.EnumPrioridadeTransporte;
-import cardboard.transportadora.enums.EnumTipoTransporte;
 import cardboard.transportadora.modelo.Transportadora;
 
 public class ComunicarWebService {
@@ -27,8 +27,10 @@ public class ComunicarWebService {
         List<Transportadora> transportadoras = new ArrayList<>();
         Type transportadoraType = new TypeToken<List<Transportadora>>() {}.getType();
         transportadoras = gson.fromJson(json, transportadoraType);
-		new CalcularMelhorTransportadora().calcula(transportadoras, distancia,
-				EnumPrioridadeTransporte.getPrioridade(prioridade), EnumTipoTransporte.getTipo(tipoTransporte));
+		new CalcularMelhorTransportadora().calcula(
+				tipoTransporte > 0 ? transportadoras.stream().filter(t -> t.getCodigoTransportadora() == tipoTransporte)
+						.collect(Collectors.toList()) : transportadoras,
+				distancia, EnumPrioridadeTransporte.getPrioridade(prioridade));
 	}
 	
 	private String enviaGet(String url, String method) {

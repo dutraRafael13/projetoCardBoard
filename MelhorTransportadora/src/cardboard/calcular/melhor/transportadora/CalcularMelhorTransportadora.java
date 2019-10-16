@@ -6,23 +6,24 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import cardboard.transportadora.enums.EnumPrioridadeTransporte;
-import cardboard.transportadora.enums.EnumTipoTransporte;
 import cardboard.transportadora.modelo.MelhorTransportadora;
 import cardboard.transportadora.modelo.Transportadora;
 
 public class CalcularMelhorTransportadora {
 	
-	public void calcula(List<Transportadora> transportadoras, long distancia, EnumPrioridadeTransporte prioridade, EnumTipoTransporte tipoTransporte) {
+	public void calcula(List<Transportadora> transportadoras, long distancia, EnumPrioridadeTransporte prioridade) {
 		Map<Integer, Map<Integer, Double>> mapTransportadoras = new TreeMap<>();
 		transportadoras.stream().forEach(transportadora -> {
-			this.setaMapTransportadoras(mapTransportadoras, distancia, transportadora, EnumPrioridadeTransporte.MENOR_PRECO);
-			this.setaMapTransportadoras(mapTransportadoras, distancia, transportadora, EnumPrioridadeTransporte.MENOR_TEMPO);
+			this.setaMapTransportadoras(mapTransportadoras, distancia, transportadora,
+					prioridade.getId() == EnumPrioridadeTransporte.MENOR_PRECO.getId() ? EnumPrioridadeTransporte.MENOR_PRECO
+							: EnumPrioridadeTransporte.MENOR_TEMPO);		});
+		List<MelhorTransportadora> melhores = listaMelhores(mapTransportadoras,
+				prioridade.getId() == EnumPrioridadeTransporte.MENOR_PRECO.getId()
+						? EnumPrioridadeTransporte.MENOR_PRECO : EnumPrioridadeTransporte.MENOR_TEMPO);
+		System.out.println("Melhor transportadora: ");
+		melhores.stream().forEach(melhor -> {
+			System.out.println(melhor.getCodigo());
 		});
-		List<MelhorTransportadora> melhoresPrecos = listaMelhores(mapTransportadoras, EnumPrioridadeTransporte.MENOR_PRECO);
-		List<MelhorTransportadora> melhoresTempos = listaMelhores(mapTransportadoras, EnumPrioridadeTransporte.MENOR_TEMPO);
-		if (prioridade.getId() == EnumPrioridadeTransporte.MENOR_PRECO.getId() && melhoresPrecos.size() == 1) {
-			System.out.println("Melhor transportadora: " + melhoresPrecos.get(0).getCodigo());
-		} 
 	}
 
 	private List<MelhorTransportadora> listaMelhores(Map<Integer, Map<Integer, Double>> mapTransportadoras, EnumPrioridadeTransporte prioridade) {
