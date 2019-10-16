@@ -444,3 +444,39 @@ Java Model Exception: Java Model Status [Index out of bounds]
 	at java.lang.Thread.run(Thread.java:748)
 !SUBENTRY 1 org.eclipse.jdt.core 4 980 2019-10-14 22:29:43.818
 !MESSAGE Index out of bounds
+
+!ENTRY org.eclipse.ui 4 4 2019-10-15 18:55:43.583
+!MESSAGE Conflicting handlers for org.eclipse.jdt.ui.edit.text.java.format: {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@617fed77} vs {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@59c15239}
+
+!ENTRY org.eclipse.ui 4 4 2019-10-15 18:56:46.864
+!MESSAGE Conflicting handlers for org.eclipse.jdt.ui.edit.text.java.format: {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@617fed77} vs {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@59c15239}
+
+!ENTRY org.eclipse.ui 4 4 2019-10-15 20:29:35.959
+!MESSAGE Conflicting handlers for org.eclipse.jdt.ui.edit.text.java.format: {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@617fed77} vs {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@59c15239}
+
+!ENTRY org.eclipse.ui 4 4 2019-10-15 20:58:45.530
+!MESSAGE Conflicting handlers for org.eclipse.jdt.ui.edit.text.java.format: {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@617fed77} vs {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@59c15239}
+
+!ENTRY org.eclipse.jface 2 0 2019-10-15 21:03:27.885
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-10-15 21:03:27.885
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.eof,EOF,
+		Send end of file,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6b0d8a0b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@472c55aa,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.ui 4 4 2019-10-15 23:13:42.129
+!MESSAGE Conflicting handlers for org.eclipse.jdt.ui.edit.text.java.format: {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@617fed77} vs {org.eclipse.jdt.internal.debug.ui.console.JavaStackTracePageParticipant$1@59c15239}

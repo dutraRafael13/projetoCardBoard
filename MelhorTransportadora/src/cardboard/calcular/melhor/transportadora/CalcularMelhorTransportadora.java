@@ -1,29 +1,57 @@
 package cardboard.calcular.melhor.transportadora;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 import cardboard.transportadora.enums.EnumPrioridadeTransporte;
 import cardboard.transportadora.enums.EnumTipoTransporte;
+import cardboard.transportadora.modelo.MelhorTransportadora;
 import cardboard.transportadora.modelo.Transportadora;
 
 public class CalcularMelhorTransportadora {
 	
-	public String calcula(List<Transportadora> transportadoras, long distancia, EnumPrioridadeTransporte prioridade) {
-		String msg = "";
+	public void calcula(List<Transportadora> transportadoras, long distancia, EnumPrioridadeTransporte prioridade, EnumTipoTransporte tipoTransporte) {
 		Map<Integer, Map<Integer, Double>> mapTransportadoras = new TreeMap<>();
 		transportadoras.stream().forEach(transportadora -> {
 			this.setaMapTransportadoras(mapTransportadoras, distancia, transportadora, EnumPrioridadeTransporte.MENOR_PRECO);
 			this.setaMapTransportadoras(mapTransportadoras, distancia, transportadora, EnumPrioridadeTransporte.MENOR_TEMPO);
 		});
-		mapTransportadoras.get(EnumPrioridadeTransporte.MENOR_PRECO.getId()).values().
-		return msg;
+		listaMelhores(mapTransportadoras, EnumPrioridadeTransporte.MENOR_PRECO);
+		listaMelhores(mapTransportadoras, EnumPrioridadeTransporte.MENOR_TEMPO);
+	}
+
+	private List<MelhorTransportadora> listaMelhores(Map<Integer, Map<Integer, Double>> mapTransportadoras, EnumPrioridadeTransporte prioridade) {
+		boolean captura = true;
+		List<MelhorTransportadora> melhores = new ArrayList<>();
+		MelhorTransportadora melhorTransportadora = new MelhorTransportadora();
+		while (captura) {
+			melhorTransportadora = this.retornaMelhorTransportadora(mapTransportadoras.get(prioridade.getId()), melhorTransportadora);
+			melhores.add(melhorTransportadora);
+			if (melhorTransportadora.isEmpateTransportadoras()) {
+				melhorTransportadora.setEmpateTransportadoras(false);
+			} else {
+				captura = false;
+			}
+		}
+		return melhores;
 	}
 	
-	public String calcula(List<Transportadora> transportadoras, long distancia,
-			EnumPrioridadeTransporte prioridade, EnumTipoTransporte tipoTransporte) {
-		return "";	
+	private MelhorTransportadora retornaMelhorTransportadora(Map<Integer, Double> mapTransportadoras, MelhorTransportadora melhor) {
+		mapTransportadoras.keySet().stream().forEach(transportadora -> {
+			double calculoTransportadora = mapTransportadoras.get(transportadora);
+			if (melhor.getMelhorCalculo() == 0) {
+				melhor.setCodigo(transportadora);
+				melhor.setMelhorCalculo(calculoTransportadora);
+			} else if (melhor.getMelhorCalculo() > calculoTransportadora){
+				melhor.setCodigo(transportadora);
+				melhor.setMelhorCalculo(calculoTransportadora);
+			} else if (melhor.getMelhorCalculo() ==  calculoTransportadora && melhor.getCodigo() != transportadora) {
+				melhor.setEmpateTransportadoras(true);
+			}
+		});
+		return melhor;
 	}
 	
 	private void setaMapTransportadoras(Map<Integer, Map<Integer, Double>> mapTransportadoras, long distancia,
