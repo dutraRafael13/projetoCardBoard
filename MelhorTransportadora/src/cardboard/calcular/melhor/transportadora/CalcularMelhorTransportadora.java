@@ -18,8 +18,11 @@ public class CalcularMelhorTransportadora {
 			this.setaMapTransportadoras(mapTransportadoras, distancia, transportadora, EnumPrioridadeTransporte.MENOR_PRECO);
 			this.setaMapTransportadoras(mapTransportadoras, distancia, transportadora, EnumPrioridadeTransporte.MENOR_TEMPO);
 		});
-		listaMelhores(mapTransportadoras, EnumPrioridadeTransporte.MENOR_PRECO);
-		listaMelhores(mapTransportadoras, EnumPrioridadeTransporte.MENOR_TEMPO);
+		List<MelhorTransportadora> melhoresPrecos = listaMelhores(mapTransportadoras, EnumPrioridadeTransporte.MENOR_PRECO);
+		List<MelhorTransportadora> melhoresTempos = listaMelhores(mapTransportadoras, EnumPrioridadeTransporte.MENOR_TEMPO);
+		if (prioridade.getId() == EnumPrioridadeTransporte.MENOR_PRECO.getId() && melhoresPrecos.size() == 1) {
+			System.out.println("Melhor transportadora: " + melhoresPrecos.get(0).getCodigo());
+		} 
 	}
 
 	private List<MelhorTransportadora> listaMelhores(Map<Integer, Map<Integer, Double>> mapTransportadoras, EnumPrioridadeTransporte prioridade) {
