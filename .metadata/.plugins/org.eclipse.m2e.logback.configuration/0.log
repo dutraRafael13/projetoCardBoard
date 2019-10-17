@@ -1034,3 +1034,13 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find
 2019-10-16 17:59:05,066 [Worker-174: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2019-10-16 17:59:05,083 [Worker-174: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-10-16 17:59:05,083 [Worker-174: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/rafael/Downloads/transportadoraAPI/src/test/resources
+2019-10-16 18:15:57,999 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-16 18:15:58,052 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-16 18:15:58,081 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-16 18:15:58,083 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-16 18:15:58,083 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/rafael/Downloads/transportadoraAPI/src/test/resources
+2019-10-16 18:16:19,278 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-16 18:16:19,279 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-16 18:16:19,279 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-16 18:16:19,281 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-16 18:16:19,281 [Worker-179: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/rafael/Downloads/transportadoraAPI/src/test/resources
